@@ -65,7 +65,7 @@ export default class News extends Component {
     this.props.setProgress(0);
     // this is url to fetch api, fetch api takes a url and returns a promise, await means ki wait krega api ke fetch
     // hone ka , ya promise resolve hone ka tbhi aage jayega
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&${this.props.apikey}&page=1&pageSize=6`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=${this.props.apikey}&page=1&pageSize=6`;
     let data = await fetch(url);
     //  this will give parsed fetch api
     let parsedData = await data.json();
@@ -76,7 +76,7 @@ export default class News extends Component {
   }
   handleprev = async () => {
     
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&${this.props.apikey}&page=${this.state.page - 1}&pageSize=6`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=${this.props.apikey}&page=${this.state.page - 1}&pageSize=6`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -91,7 +91,7 @@ export default class News extends Component {
       // we do nothing if greater than this.
     }
     else {
-      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&${this.props.apikey}&page=${this.state.page + 1}&pageSize=6`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=${this.props.apikey}&page=${this.state.page + 1}&pageSize=6`;
       let data = await fetch(url);
       let parsedData = await data.json();
       console.log(parsedData);
